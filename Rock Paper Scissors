@@ -1,13 +1,25 @@
 import random
 
-def rock_paper_scissors():
-    choices = ["rock", "paper", "scissors"]
-    user_choice = input("Choose rock, paper, or scissors: ").lower()
-    computer_choice = random.choice(choices)
+print("Welcome to Rock, Paper, Scissors!")
 
-    print(f"You chose: {user_choice}")
+# Choices
+choices = ["rock", "paper", "scissors"]
+
+while True:
+    # User input
+    user_choice = input("Enter rock, paper, or scissors (or 'quit' to stop): ").lower()
+    if user_choice == "quit":
+        print("Thanks for playing! Goodbye.")
+        break
+    if user_choice not in choices:
+        print("Invalid choice! Try again.")
+        continue
+
+    # Computer choice
+    computer_choice = random.choice(choices)
     print(f"Computer chose: {computer_choice}")
 
+    # Determine winner
     if user_choice == computer_choice:
         print("It's a tie!")
     elif (user_choice == "rock" and computer_choice == "scissors") or \
@@ -16,7 +28,4 @@ def rock_paper_scissors():
         print("You win!")
     else:
         print("You lose!")
-
-
-# Run game
-# rock_paper_scissors()
+    print()
